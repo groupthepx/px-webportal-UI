@@ -1,0 +1,14 @@
+# Robots.txt for The PX Group
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /profile/
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://px-group.com/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+

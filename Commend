@@ -1,0 +1,65 @@
+Commend Web Portal to Codex
+
+Phase 0: ตรวจโครงสร้างเดิม
+ตรวจ frontend/pg-group-frontend-webportal-main
+แยก UI ใหม่ออกจาก Flow เดิม
+ตรวจ Login, Register, Profile และ API เดิม
+เตรียม .env.example และ mock service
+
+Phase 1: Public Webportal
+หน้า Home เดิม
+เปลี่ยน Register เป็น Recruitment Apply
+รองรับ Source Link / Referral / Campaign / Broker
+เลือก App หลักได้ 1 App
+เก็บ line_id, whatsapp_phone
+ตรวจข้อมูลซ้ำ
+หน้า Apply Success
+
+Phase 2: Authentication
+Login ด้วย Username / Password
+สร้างหรือเชื่อม PX Account
+หลังสร้าง Account จึงเห็น Application Status
+แยกสถานะผู้ใช้ทั่วไปและ VJ ให้ชัดเจน
+
+Phase 3: Member Area
+Member Home
+Profile
+Application Status
+App / Organization ที่ใช้งาน
+Onboarding Status
+Lesson Progress
+Level 1-4 และคะแนน 100 คะแนนต่อ Level
+Notification / Reminder
+Phase 4: Training และ Level
+รายการบทเรียน
+บทเรียนแยกตามหัวข้อและวิดีโอ
+ข้อสอบประจำบทเรียน
+แสดงจำนวนข้อสอบแบบสุ่ม
+Lesson ยังไม่ Block หน้าอื่นใน MVP
+แสดงสถานะ Auto Record / Manual Approve
+แสดง Level Progress และ STAR LIVE Progress
+Phase 5: Existing Member Functions
+Wallet / Withdraw
+Live
+Market / Gift / AngPao
+Notifications
+History
+Settings
+Phase 6: Multi-App
+แสดง App หลักและ App ที่เพิ่มภายหลัง
+Add App Request
+ติดตามสถานะ BD → HR → Training → Web Admin
+ใช้ User เดิม ไม่สร้าง Member ซ้ำ
+แสดง Training แยกตาม App
+ลำดับที่แนะนำให้เริ่มจริง
+ตรวจและรัน Web Portal เดิม  
+ทำ Recruitment Apply  
+ทำ Apply Success + Login  
+ทำ Application Status  
+ทำ Onboarding / Lesson / Level  
+เชื่อม API จริง  
+ทดสอบสถานะทุกขั้นตอน  
+ค่อยปรับ Wallet, Live, Market และฟังก์ชันเดิม
+จุดสำคัญคือควรทำเป็น Vertical Flow แรกให้จบก่อน:
+Source Link → Recruitment Apply → Account → Application Status → Training → Level
+เมื่อ Flow นี้เชื่อม Backend สำเร็จแล้ว จึงขยายไปยังหน้าสมาชิกส่วนอื่นครับ

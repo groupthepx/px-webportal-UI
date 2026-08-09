@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  pg-group-webportal:
+    image: thepxgroup/the-px-group:pg-group-webportal-dev
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+    ports:
+      - 4000:3000

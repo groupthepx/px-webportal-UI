@@ -1,0 +1,24 @@
+const assetLinks = [
+  {
+    relation: [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds",
+    ],
+    target: {
+      namespace: "android_app",
+      package_name: "com.thepxgroup.vj",
+      sha256_cert_fingerprints: [
+        "C2:99:28:3B:41:0B:A3:97:D6:A9:93:A8:F9:43:93:B3:6F:03:A6:DB:E2:85:55:4F:30:24:DE:FA:E9:19:E7:88",
+        "0E:11:43:23:FC:92:46:53:70:35:7E:68:8D:23:AE:BF:CC:01:8C:CB:2A:6A:4E:11:B5:4F:38:8A:11:70:5B:F2",
+      ],
+    },
+  },
+];
+
+export function GET() {
+  return Response.json(assetLinks, {
+    headers: {
+      "Cache-Control": "public, max-age=300, s-maxage=300",
+    },
+  });
+}

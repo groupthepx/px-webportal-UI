@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://px-group.com/</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- About -->
+  <url>
+    <loc>https://px-group.com/about</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Activity -->
+  <url>
+    <loc>https://px-group.com/activity</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Article -->
+  <url>
+    <loc>https://px-group.com/article</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- PX Market -->
+  <url>
+    <loc>https://px-group.com/px_market</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Login -->
+  <url>
+    <loc>https://px-group.com/login</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Register -->
+  <url>
+    <loc>https://px-group.com/register</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
+
