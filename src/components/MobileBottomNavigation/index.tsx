@@ -2,9 +2,9 @@
 
 import AppsRoundedIcon from '@mui/icons-material/AppsRounded';
 import BusinessRoundedIcon from '@mui/icons-material/BusinessRounded';
+import ChatBubbleOutlineRoundedIcon from '@mui/icons-material/ChatBubbleOutlineRounded';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
-import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import { alpha, BottomNavigation, BottomNavigationAction, Box, Paper } from '@mui/material';
 import { usePathname, useRouter } from 'next/navigation';
 import { useContext } from 'react';
@@ -75,7 +75,7 @@ const navigationItems = [
     label: 'กล่องข้อความ',
     href: '/member/notifications',
     authOnly: true,
-    icon: <NotificationsNoneRoundedIcon />
+    icon: <ChatBubbleOutlineRoundedIcon />
   }
 ];
 
