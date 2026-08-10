@@ -9,6 +9,7 @@ import EventAvailableOutlinedIcon from '@mui/icons-material/EventAvailableOutlin
 import HistoryRoundedIcon from '@mui/icons-material/HistoryRounded';
 import LiveTvOutlinedIcon from '@mui/icons-material/LiveTvOutlined';
 import GroupsOutlinedIcon from '@mui/icons-material/GroupsOutlined';
+import PaidOutlinedIcon from '@mui/icons-material/PaidOutlined';
 import RedeemRoundedIcon from '@mui/icons-material/RedeemRounded';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 import StarsRoundedIcon from '@mui/icons-material/StarsRounded';
@@ -36,7 +37,7 @@ const quickActions: Array<{ label: string; description: string; href?: string; a
   { label: 'อังเปา', description: 'ดูรายการอังเปาที่ได้รับ', href: '/member/angpao', icon: CardGiftcardOutlinedIcon, color: '#db2777' },
   { label: 'ของขวัญ', description: 'ดูของขวัญที่ได้รับ', href: '/gift_box', icon: RedeemRoundedIcon, color: '#f59e0b' },
   { label: 'ห้องเรียนออนไลน์', description: 'เรียนรู้ตาม App ของคุณ', href: '/member/training', icon: SchoolOutlinedIcon, color: '#16a34a', vjOnly: true },
-  { label: 'โบนัสสังกัด', description: 'ดูโบนัสของ App ที่สังกัด', action: 'affiliate_bonus', icon: AccountBalanceWalletOutlinedIcon, color: '#0f766e', vjOnly: true },
+  { label: 'โบนัสสังกัด', description: 'ดูโบนัสของ App ที่สังกัด', action: 'affiliate_bonus', icon: PaidOutlinedIcon, color: '#0f766e', vjOnly: true },
   { label: 'บัญชีธนาคาร', description: 'จัดการบัญชีสำหรับรับเงิน', href: '/profile?tab=bank', icon: AccountBalanceWalletOutlinedIcon, color: '#0f766e' },
   { label: 'ประวัติ', description: 'ดูรายการย้อนหลัง', href: '/member/history', icon: HistoryRoundedIcon, color: '#475569' },
 ];
@@ -46,6 +47,21 @@ const fallbackTopVjs: Array<Partial<TopVJModelDetail>> = [
   { nick_name: 'Mild', full_name: 'มิลด์', profile: '' },
   { nick_name: 'Pim', full_name: 'พิม', profile: '' },
 ];
+
+const missionCardThemes = {
+  daily: {
+    surface: '#fff7ed',
+    border: '#fdba74',
+    accent: '#ea580c',
+    iconSurface: '#ffedd5',
+  },
+  starLive: {
+    surface: '#f5f3ff',
+    border: '#c4b5fd',
+    accent: '#7c3aed',
+    iconSurface: '#ede9fe',
+  },
+} as const;
 
 function useAutoScrollRail(railRef: React.MutableRefObject<HTMLDivElement | null>, delay = 4500) {
   useEffect(() => {
@@ -188,24 +204,24 @@ function MemberHomeDashboard() {
             <Typography sx={{ mt: 0.35, mb: 1.25, color: theme.colors.gray.main, fontSize: 13 }}>เลือกภารกิจที่ต้องการติดตาม</Typography>
             <Grid container spacing={1.5}>
               <Grid size={{ xs: 12, sm: 6 }}>
-                <Card elevation={0} sx={{ height: '100%', border: '1px solid', borderColor: 'rgba(15,23,42,.08)', borderRadius: 2.5 }}>
+                <Card elevation={0} sx={{ height: '100%', bgcolor: missionCardThemes.daily.surface, border: '1px solid', borderColor: missionCardThemes.daily.border, borderRadius: 2.5, boxShadow: '0 8px 20px rgba(234, 88, 12, 0.08)' }}>
                   <CardActionArea component="button" onClick={() => setDailyMissionOpen(true)} sx={{ height: '100%', textAlign: 'left' }}>
                     <CardContent sx={{ p: { xs: 1.75, md: 2 } }}>
                       <Stack direction="row" alignItems="center" spacing={1.25}>
-                        <Box sx={{ display: 'grid', placeItems: 'center', width: 44, height: 44, borderRadius: 1.75, color: '#d97706', bgcolor: '#fff7ed' }}><EventAvailableOutlinedIcon /></Box>
-                        <Box><Typography sx={{ color: theme.colors.black.main, fontSize: 15, fontWeight: 800 }}>ภารกิจรายวัน</Typography><Typography sx={{ mt: 0.35, color: theme.colors.gray.main, fontSize: 12 }}>ติดตามสิ่งที่ต้องทำในแต่ละวัน</Typography></Box>
+                        <Box sx={{ display: 'grid', placeItems: 'center', width: 44, height: 44, borderRadius: 1.75, color: missionCardThemes.daily.accent, bgcolor: missionCardThemes.daily.iconSurface }}><EventAvailableOutlinedIcon /></Box>
+                        <Box><Typography sx={{ color: missionCardThemes.daily.accent, fontSize: 15, fontWeight: 800 }}>ภารกิจรายวัน</Typography><Typography sx={{ mt: 0.35, color: theme.colors.gray.main, fontSize: 12 }}>ติดตามสิ่งที่ต้องทำในแต่ละวัน</Typography></Box>
                       </Stack>
                     </CardContent>
                   </CardActionArea>
                 </Card>
               </Grid>
               <Grid size={{ xs: 12, sm: 6 }}>
-                <Card elevation={0} sx={{ height: '100%', border: '1px solid', borderColor: missionView === 'star_live' ? theme.colors.primary.main : 'rgba(15,23,42,.08)', borderRadius: 2.5 }}>
+                <Card elevation={0} sx={{ height: '100%', bgcolor: missionCardThemes.starLive.surface, border: '1px solid', borderColor: missionView === 'star_live' ? missionCardThemes.starLive.accent : missionCardThemes.starLive.border, borderRadius: 2.5, boxShadow: '0 8px 20px rgba(124, 58, 237, 0.08)' }}>
                   <CardActionArea component="button" onClick={() => setMissionView(toggleMissionView(missionView, 'star_live'))} aria-expanded={missionView === 'star_live'} sx={{ height: '100%', textAlign: 'left' }}>
                     <CardContent sx={{ p: { xs: 1.75, md: 2 } }}>
                       <Stack direction="row" alignItems="center" spacing={1.25}>
-                        <Box sx={{ display: 'grid', placeItems: 'center', width: 44, height: 44, borderRadius: 1.75, color: '#f59e0b', bgcolor: '#fff7ed' }}><TopRatingRoundedIcon /></Box>
-                        <Box><Typography sx={{ color: theme.colors.black.main, fontSize: 15, fontWeight: 800 }}>ภารกิจ VJ Star Live</Typography><Typography sx={{ mt: 0.35, color: theme.colors.gray.main, fontSize: 12 }}>ติดตามความคืบหน้าแยกตาม App</Typography></Box>
+                        <Box sx={{ display: 'grid', placeItems: 'center', width: 44, height: 44, borderRadius: 1.75, color: missionCardThemes.starLive.accent, bgcolor: missionCardThemes.starLive.iconSurface }}><TopRatingRoundedIcon /></Box>
+                        <Box><Typography sx={{ color: missionCardThemes.starLive.accent, fontSize: 15, fontWeight: 800 }}>ภารกิจ VJ Star Live</Typography><Typography sx={{ mt: 0.35, color: theme.colors.gray.main, fontSize: 12 }}>ติดตามความคืบหน้าแยกตาม App</Typography></Box>
                       </Stack>
                     </CardContent>
                   </CardActionArea>
@@ -213,9 +229,9 @@ function MemberHomeDashboard() {
               </Grid>
             </Grid>
 
-            {missionView === 'star_live' && <Card elevation={0} sx={{ mt: 1.5, border: '1px solid', borderColor: 'rgba(15,23,42,.08)', borderRadius: 2.5 }}>
+            {missionView === 'star_live' && <Card elevation={0} sx={{ mt: 1.5, bgcolor: missionCardThemes.starLive.surface, border: '1px solid', borderColor: missionCardThemes.starLive.border, borderRadius: 2.5, boxShadow: '0 8px 20px rgba(124, 58, 237, 0.06)' }}>
               <CardContent sx={{ p: { xs: 2, md: 2.5 } }}>
-                <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}><Box><Typography sx={{ color: theme.colors.black.main, fontSize: 18, fontWeight: 800 }}>ภารกิจ VJ Star Live</Typography><Typography sx={{ mt: 0.35, color: theme.colors.gray.main, fontSize: 13 }}>ติดตามภารกิจแยกตามสังกัด</Typography></Box><Button href="/member/profile" size="small" endIcon={<ChevronRightRoundedIcon />}>ดูสังกัด</Button></Stack>
+                <Stack direction="row" justifyContent="space-between" alignItems="center" spacing={1}><Box><Typography sx={{ color: missionCardThemes.starLive.accent, fontSize: 18, fontWeight: 800 }}>ภารกิจ VJ Star Live</Typography><Typography sx={{ mt: 0.35, color: theme.colors.gray.main, fontSize: 13 }}>ติดตามภารกิจแยกตามสังกัด</Typography></Box><Button href="/member/profile" size="small" endIcon={<ChevronRightRoundedIcon />} sx={{ color: missionCardThemes.starLive.accent }}>ดูสังกัด</Button></Stack>
                 {applications.length === 0 ? <Typography sx={{ mt: 2, color: theme.colors.gray.main, fontSize: 14 }}>ยังไม่มีข้อมูลสังกัดในระบบ</Typography> : <Stack spacing={1} sx={{ mt: 2 }}>{applications.map((app) => <Box key={app.id} component="a" href={`/member/level-progress/${encodeURIComponent(encrypt(app.id))}`} sx={{ display: 'block', px: 1, py: 1, borderRadius: 1.5, color: 'inherit', textDecoration: 'none', transition: 'background-color .2s ease', '&:hover': { backgroundColor: alpha(theme.colors.primary.main, 0.06) } }}><Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}><Stack direction="row" alignItems="center" spacing={1}><Avatar src={app.logo || undefined} sx={{ width: 32, height: 32, bgcolor: alpha(app.statusColor, 0.12), color: app.statusColor, fontSize: 12, fontWeight: 800 }}>{app.name.slice(0, 1)}</Avatar><Box><Typography sx={{ color: theme.colors.black.main, fontSize: 14, fontWeight: 700 }}>{app.name}</Typography><Typography sx={{ color: theme.colors.gray.main, fontSize: 12 }}>{app.level} · {app.status}</Typography></Box></Stack><Stack direction="row" alignItems="center" spacing={1}><Typography sx={{ color: app.statusColor, fontSize: 14, fontWeight: 800 }}>{app.progress}%</Typography><ChevronRightRoundedIcon sx={{ color: theme.colors.primary.main }} /></Stack></Stack><LinearProgress variant="determinate" value={app.progress} sx={{ mt: 0.75, height: 7, borderRadius: 4, '& .MuiLinearProgress-bar': { backgroundColor: app.statusColor } }} /></Box>)}</Stack>}
               </CardContent>
             </Card>}
